@@ -1,3 +1,4 @@
+<?php include("pdo_connect.php")?>
 <!doctype html>
 <html lang="en">
 
