@@ -13,11 +13,12 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>PageTurn — Library Management</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/auth.css">
+
 </head>
 
 <body>
-   <?php require __DIR__ . '/component/nav.php'; ?>
+   
 
     <main class="auth-area px-3 py-5">
         <form class="auth-card surface p-4 p-md-5" method="POST" action="#">
