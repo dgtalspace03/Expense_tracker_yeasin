@@ -45,7 +45,7 @@ class UserActions
         if ($verify) return $this->formateresult(true, "Login Successfull");
         return $this->formateresult(true, "Wrong Password");
     }
-    public function IsLoggedIn():bool
+    public function IsLoggedIn(): bool
     {
         $userId = $_SESSION['userId'];
         $smt = $this->pdo->prepare("SELECT * FROM user WHERE id=?");
@@ -53,5 +53,14 @@ class UserActions
         if ($smt->rowCount() == 0)
             return false;
         return true;
+    }
+    public function GetSessionUser()
+    {
+        $userId = $_SESSION['userId'];
+        $smt = $this->pdo->prepare("SELECT * FROM user WHERE id=?");
+        $smt->execute([$userId]);
+        if ($smt->rowCount() == 0)
+            return null;
+        return $smt->fetch(PDO::FETCH_ASSOC);
     }
 }
