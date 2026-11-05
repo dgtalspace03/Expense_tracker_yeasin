@@ -1,0 +1,161 @@
+:root {
+    --brand: #3157d5;
+    --ink: #182230;
+    --muted: #6b7788;
+    --line: #e8edf3;
+    --page: #f5f7fb;
+}
+
+body {
+    background: var(--page);
+    color: var(--ink);
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+.navbar {
+    background: #fff;
+    border-bottom: 1px solid var(--line);
+}
+
+.brand-mark {
+    width: 34px;
+    height: 34px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--brand);
+    color: #fff;
+    border-radius: 10px;
+}
+
+.app-shell {
+    max-width: 1220px;
+}
+
+.page-title {
+    letter-spacing: -.035em;
+}
+
+.summary-card,
+.panel {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    box-shadow: 0 3px 14px rgba(23, 39, 70, .035);
+}
+
+.summary-card {
+    padding: 20px;
+    height: 100%;
+}
+
+.summary-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.15rem;
+}
+
+.summary-label {
+    color: var(--muted);
+    font-size: .88rem;
+}
+
+.summary-value {
+    font-size: 1.65rem;
+    font-weight: 700;
+    letter-spacing: -.04em;
+}
+
+.panel-header {
+    padding: 18px 20px;
+    border-bottom: 1px solid var(--line);
+}
+
+.table thead th {
+    color: #778396;
+    font-size: .75rem;
+    text-transform: uppercase;
+    letter-spacing: .055em;
+    font-weight: 650;
+    background: #fbfcfe;
+    border-bottom: 1px solid var(--line);
+    white-space: nowrap;
+}
+
+.table td {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    vertical-align: middle;
+    border-color: #eef1f5;
+}
+
+.category-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+}
+
+.form-control,
+.form-select {
+    border-color: #dfe5ed;
+    min-height: 42px;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: #9aafff;
+    box-shadow: 0 0 0 .2rem rgba(49, 87, 213, .12);
+}
+
+.btn-primary {
+    background: var(--brand);
+    border-color: var(--brand);
+}
+
+.btn-primary:hover {
+    background: #2748ba;
+    border-color: #2748ba;
+}
+
+.muted {
+    color: var(--muted);
+}
+
+.badge-income {
+    background: #e8f7ef;
+    color: #16834a;
+}
+
+.badge-expense {
+    background: #fff0ed;
+    color: #c34c3a;
+}
+
+.empty-state {
+    display: none;
+    text-align: center;
+    padding: 42px 16px;
+    color: var(--muted);
+}
+
+@media(max-width:575px) {
+    .summary-value {
+        font-size: 1.35rem
+    }
+
+    .summary-card {
+        padding: 16px
+    }
+
+    .panel-header {
+        padding: 16px
+    }
+}
