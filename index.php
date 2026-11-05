@@ -1,4 +1,13 @@
-<?php include("pdo_connect.php")?>
+<?php include("pdo_connect.php") ?>
+<?php include("Classes/UserActions.php") ?>
+<?php
+session_start();
+$user_action = new UserActions($pdo);
+
+if(!$user_action->IsLoggedIn()){
+    header("Location:login.php");
+}
+?>
 <!doctype html>
 <html lang="en">
 
@@ -22,12 +31,8 @@
                 <div class="dropdown">
                     <button class="btn btn-light rounded-circle" data-bs-toggle="dropdown" aria-label="Account menu"><i class="bi bi-person"></i></button>
                     <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0">
-                        <li><a class="dropdown-item" href="#"><i class="bi bi-person me-2"></i>Profile</a></li>
-                        <li><a class="dropdown-item" href="#"><i class="bi bi-gear me-2"></i>Settings</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item text-danger" href="#"><i class="bi bi-box-arrow-right me-2"></i>Log out</a></li>
+                     
+                        <li><a class="dropdown-item text-danger" href="logout.php"><i class="bi bi-box-arrow-right me-2"></i>Log out</a></li>
                     </ul>
                 </div>
             </div>

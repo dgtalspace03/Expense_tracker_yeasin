@@ -1,9 +1,26 @@
-<?php include("pdo_connect.php")?>
-
+<?php include("pdo_connect.php") ?>
+<?php include("Classes/UserActions.php") ?>
 <?php
 session_start();
+$user_action = new UserActions($pdo);
 
+if($_SERVER["REQUEST_METHOD"]=="POST"){
+    if(!isset($_POST['email']) || !isset($_POST['password'])){
+        // Add toast;
+        echo "Must Needed";
+    }
+    $email= $_POST['email'];
+    $password=$_POST['password'];
+    $res=$user_action->Login($email,$password);
+    if(!$res["success"]){
+        //todo
+        echo $res["msg"];
+    }else{
+        header("Location:index.php");
+        exit();
+    }
 
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -32,11 +49,11 @@ session_start();
                 Sign in to see your borrowed books and reading history.
             </p>
             <div class="mb-3">
-                <label class="form-label fw-semibold" for="username">Username</label><input
-                    id="username"
-                    name="username"
+                <label class="form-label fw-semibold" for="username">Email</label><input
+                    id="email"
+                    name="email"
                     class="form-control form-control-lg"
-                    autocomplete="username"
+                    autocomplete="email"
                     required />
             </div>
             <div class="mb-3">
@@ -45,7 +62,7 @@ session_start();
                     name="password"
                     type="password"
                     class="form-control form-control-lg"
-                    autocomplete="current-password"
+          
                     required />
             </div>
 
